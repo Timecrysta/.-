@@ -1,0 +1,201 @@
+/* General Styles */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* Header Styles */
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Space between logo and links */
+    padding: 10px 20px;
+    background-color: #282c34; /* Dark background color */
+    color: white;
+}
+
+header img {
+    border-radius: 50%; /* Make the image circular */
+}
+
+header a {
+    color: white; /* White text color for links */
+    text-decoration: none; /* Remove underline */
+    margin: 0 15px; /* Spacing between links */
+    padding: 10px 15px; /* Padding around links for better click area */
+    transition: background-color 0.3s; /* Smooth transition for hover effect */
+}
+
+header a:hover {
+    background-color: pink; /* Background color change on hover */
+    border-radius: 5px; /* Rounded corners on hover */
+}
+
+/* Optional: Responsive Design */
+@media (max-width: 600px) {
+    header {
+        flex-direction: column; /* Stack items vertically on small screens */
+        align-items: flex-start; /* Align items to the start */
+    }
+
+    header a {
+        margin: 5px 0; /* Adjust spacing for stacked layout */
+    }
+}
+body {
+    margin: 0;
+    overflow: hidden; /* Prevent scrollbars from appearing */
+    height: 100vh;
+    background:white; /* Background color */
+}
+
+.cursor {
+    position: absolute;
+    border-radius: 50%;
+    width: 20px; /* Size of the cursor */
+    height: 20px;
+    pointer-events: none; /* Make sure the cursor doesn’t interfere with mouse events */
+    transition: background 0.3s ease, transform 0.3s ease; /* Smooth transition for color and movement */
+    will-change: transform; /* Optimize for animations */
+}
+
+/* Create a small circle */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.5);
+        opacity: 0.5;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 0;
+    }
+}
+@import url('https://fonts.cdnfonts.com/css/ica-rubrik-black');
+@import url('https://fonts.cdnfonts.com/css/poppins');
+.banner{
+    width: 100%;
+    height: 100vh;
+    text-align: center;
+    overflow: hidden;
+    position: relative;
+}
+.banner .slider{
+    position: absolute;
+    width: 200px;
+    height: 250px;
+    top: 10%;
+    left: calc(50% - 100px);
+    transform-style: preserve-3d;
+    transform: perspective(1000px);
+    animation: autoRun 20s linear infinite;
+    z-index: 2;
+}
+@keyframes autoRun{
+    from{
+        transform: perspective(1000px) rotateX(-16deg) rotateY(0deg);
+    }to{
+        transform: perspective(1000px) rotateX(-16deg) rotateY(360deg);
+    }
+}
+.banner .slider .item{
+    position: absolute;
+    inset: 0 0 0 0;
+    transform: 
+        rotateY(calc( (var(--position) - 1) * (360 / var(--quantity)) * 1deg))
+        translateZ(550px);
+}
+.banner .slider .item img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.banner .content{
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(1400px, 100vw);
+    height: max-content;
+    padding-bottom: 100px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1;
+}
+.banner .content h1{
+    font-family: 'ICA Rubrik';
+    font-size: 16em;
+    line-height: 1em;
+    color: #25283B;
+    position: relative;
+}
+.banner .content h1::after{
+    position: absolute;
+    inset: 0 0 0 0;
+    content: attr(data-content);
+    z-index: 2;
+    -webkit-text-stroke: 2px #d2d2d2;
+    color: transparent;
+}
+.banner .content .author{
+    font-family: Poppins;
+    text-align: right;
+    max-width: 200px;
+}
+.banner .content h2{
+    font-size: 3em;
+}
+.banner .content .model{
+    background-image: url(imgg/robo.jpg);
+    width: 100%;
+    height: 75vh;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-size: auto 130%;
+    background-repeat: no-repeat;
+    background-position: top center;
+    z-index: 1;
+}
+* {
+    box-sizing: border-box; /* Ensures padding and borders are included in element's total width and height */
+}
+
+* {
+    box-sizing: border-box; /* Ensures padding and borders are included in element's total width and height */
+}
+.container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.animation {
+    position: absolute;
+    width: 40px; /* Increased size for visibility */
+    height: 40px; /* Increased size for visibility */
+    border-radius: 50%;
+    background-color: rgba(97, 218, 251, 0.8); /* Semi-transparent light blue */
+    pointer-events: none; /* Prevents interference with other clicks */
+    animation: pulse 0.6s ease-out forwards; /* Animation for the pulse effect */
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1); /* Initial size */
+        opacity: 0.8; /* Initial opacity */
+    }
+    50% {
+        transform: scale(1.5); /* Scale up to 1.5 times */
+        opacity: 0.4; /* Fade out slightly */
+    }
+    100% {
+        transform: scale(0); /* Shrink to 0 */
+        opacity: 0; /* Fade out completely */
+    }
+}
